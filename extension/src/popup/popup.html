@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI-Firewall Settings</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="popup-container">
+    <!-- Header -->
+    <div class="header">
+      <div class="logo">
+        <span class="shield-icon">🛡️</span>
+        <h1>AI-Firewall</h1>
+      </div>
+      <div class="status-indicator" id="statusIndicator">
+        <span class="status-dot"></span>
+        <span class="status-text">Active</span>
+      </div>
+    </div>
+
+    <!-- Main Toggle -->
+    <div class="main-toggle">
+      <label class="toggle-switch">
+        <input type="checkbox" id="mainToggle" checked>
+        <span class="slider"></span>
+      </label>
+      <div class="toggle-label">
+        <span class="toggle-title">Content Filtering</span>
+        <span class="toggle-subtitle">AI-powered protection</span>
+      </div>
+    </div>
+
+    <!-- Current Site Info -->
+    <div class="site-info" id="siteInfo">
+      <div class="site-icon">🌐</div>
+      <div class="site-details">
+        <div class="site-name" id="siteName">Loading...</div>
+        <div class="site-status" id="siteStatus">Checking...</div>
+      </div>
+      <button class="site-action" id="siteAction">Allowlist</button>
+    </div>
+
+    <!-- Quick Stats -->
+    <div class="stats-section">
+      <div class="stats-title">Today's Protection</div>
+      <div class="stats-grid">
+        <div class="stat-item">
+          <div class="stat-number" id="blockedCount">0</div>
+          <div class="stat-label">Blocked</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number" id="scannedCount">0</div>
+          <div class="stat-label">Scanned</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number" id="sitesCount">0</div>
+          <div class="stat-label">Sites</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Filter Level -->
+    <div class="filter-section">
+      <div class="section-title">Protection Level</div>
+      <div class="filter-options">
+        <label class="filter-option">
+          <input type="radio" name="filterLevel" value="mild">
+          <span class="filter-label">
+            <span class="filter-name">Mild</span>
+            <span class="filter-desc">Basic protection</span>
+          </span>
+        </label>
+        <label class="filter-option">
+          <input type="radio" name="filterLevel" value="moderate" checked>
+          <span class="filter-label">
+            <span class="filter-name">Moderate</span>
+            <span class="filter-desc">Balanced filtering</span>
+          </span>
+        </label>
+        <label class="filter-option">
+          <input type="radio" name="filterLevel" value="strict">
+          <span class="filter-label">
+            <span class="filter-name">Strict</span>
+            <span class="filter-desc">Maximum protection</span>
+          </span>
+        </label>
+      </div>
+    </div>
+
+    <!-- Quick Actions -->
+    <div class="actions-section">
+      <button class="action-btn" id="restoreBtn">
+        <span class="btn-icon">↻</span>
+        Restore Content
+      </button>
+      <button class="action-btn" id="rescanBtn">
+        <span class="btn-icon">🔍</span>
+        Rescan Page
+      </button>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+      <button class="footer-btn" id="settingsBtn">
+        <span class="btn-icon">⚙️</span>
+        Settings
+      </button>
+      <button class="footer-btn" id="dashboardBtn">
+        <span class="btn-icon">📊</span>
+        Dashboard
+      </button>
+      <button class="footer-btn" id="helpBtn">
+        <span class="btn-icon">❓</span>
+        Help
+      </button>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

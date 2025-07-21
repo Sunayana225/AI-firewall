@@ -1,0 +1,73 @@
+{
+  "name": "ai-firewall-kids-browsing",
+  "version": "1.0.0",
+  "description": "AI-powered browser extension for safe kids browsing",
+  "author": "AI-Firewall Team",
+  "license": "MIT",
+  "components": {
+    "backend": {
+      "type": "flask",
+      "port": 5000,
+      "host": "localhost",
+      "endpoints": {
+        "text_analysis": "/api/analyze/text",
+        "image_analysis": "/api/analyze/image",
+        "health": "/api/health"
+      }
+    },
+    "extension": {
+      "type": "chrome-extension",
+      "manifest_version": 3,
+      "permissions": [
+        "activeTab",
+        "storage",
+        "scripting",
+        "host_permissions"
+      ]
+    },
+    "dashboard": {
+      "type": "react",
+      "port": 3000,
+      "build_dir": "build"
+    }
+  },
+  "ai_models": {
+    "text_toxicity": {
+      "provider": "huggingface",
+      "model": "unitary/toxic-bert",
+      "threshold": 0.7
+    },
+    "image_nsfw": {
+      "provider": "nsfwjs",
+      "model": "mobilenet_v2",
+      "threshold": 0.6
+    },
+    "content_moderation": {
+      "provider": "openai",
+      "model": "text-moderation-latest",
+      "optional": true
+    }
+  },
+  "filtering_levels": {
+    "mild": {
+      "text_threshold": 0.8,
+      "image_threshold": 0.7,
+      "categories": ["explicit", "violence"]
+    },
+    "moderate": {
+      "text_threshold": 0.6,
+      "image_threshold": 0.5,
+      "categories": ["explicit", "violence", "hate", "harassment"]
+    },
+    "strict": {
+      "text_threshold": 0.4,
+      "image_threshold": 0.3,
+      "categories": ["explicit", "violence", "hate", "harassment", "self-harm", "drugs"]
+    }
+  },
+  "development": {
+    "hot_reload": true,
+    "debug_mode": true,
+    "log_level": "DEBUG"
+  }
+}

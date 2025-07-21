@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI-Firewall Test Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .test-section {
+            margin: 20px 0;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .safe-content {
+            background-color: #e8f5e8;
+        }
+        .inappropriate-content {
+            background-color: #ffe8e8;
+        }
+        h2 {
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <h1>AI-Firewall Content Filtering Test Page</h1>
+    
+    <div class="test-section safe-content">
+        <h2>Safe Content (Should NOT be blocked)</h2>
+        <p>This is a normal paragraph with safe content. The weather is nice today.</p>
+        <p>Here's some educational content about science and technology.</p>
+        <p>Welcome to our family-friendly website with helpful information.</p>
+    </div>
+    
+    <div class="test-section inappropriate-content">
+        <h2>Inappropriate Content (Should be blocked)</h2>
+        <p>This content contains the word naked which should be filtered.</p>
+        <p>Some explicit content with the word sex that should be blocked.</p>
+        <p>Adult content with nude images should not be visible to children.</p>
+    </div>
+    
+    <div class="test-section safe-content">
+        <h2>More Safe Content</h2>
+        <p>This is another safe paragraph about cooking recipes.</p>
+        <p>Learn about healthy eating habits and exercise.</p>
+        <p>Educational content about history and geography.</p>
+    </div>
+    
+    <div class="test-section inappropriate-content">
+        <h2>Toxic Content (Should be blocked)</h2>
+        <p>This is stupid content that contains hate speech.</p>
+        <p>Some content with the word damn that might be inappropriate.</p>
+    </div>
+    
+    <div class="test-section safe-content">
+        <h2>Final Safe Section</h2>
+        <p>Thank you for testing the AI-Firewall system.</p>
+        <p>This content should remain visible as it's completely safe.</p>
+    </div>
+    
+    <script>
+        // Add some dynamic content after page load
+        setTimeout(() => {
+            const dynamicDiv = document.createElement('div');
+            dynamicDiv.className = 'test-section inappropriate-content';
+            dynamicDiv.innerHTML = '<h2>Dynamic Content (Should be blocked)</h2><p>This is dynamically added content with explicit material.</p>';
+            document.body.appendChild(dynamicDiv);
+        }, 2000);
+
+        console.log('Test page loaded - AI-Firewall should be scanning this content');
+
+        // Test API connectivity
+        async function testAPI() {
+            try {
+                const response = await fetch('http://localhost:5000/api/health');
+                const data = await response.json();
+                console.log('✅ Backend API is accessible:', data);
+
+                // Test text analysis
+                const textResponse = await fetch('http://localhost:5000/api/analyze/text', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ text: 'naked', age_group: 'moderate' })
+                });
+                const textData = await textResponse.json();
+                console.log('✅ Text analysis working:', textData);
+
+            } catch (error) {
+                console.error('❌ API test failed:', error);
+            }
+        }
+
+        // Check if AI-Firewall is loaded
+        setTimeout(() => {
+            if (window.aiFirewallInitialized) {
+                console.log('✅ AI-Firewall is initialized and running');
+            } else {
+                console.log('❌ AI-Firewall is not initialized');
+            }
+
+            // Check for blocked content
+            const blockedElements = document.querySelectorAll('.ai-firewall-blocked');
+            console.log(`Found ${blockedElements.length} blocked elements`);
+
+            // Check for safe content
+            const safeElements = document.querySelectorAll('.ai-firewall-safe');
+            console.log(`Found ${safeElements.length} safe elements`);
+
+            // Test API connectivity
+            testAPI();
+        }, 5000);
+    </script>
+</body>
+</html>

@@ -1,0 +1,349 @@
+/* AI-Firewall Content Filtering Styles */
+
+/* Blocked content containers */
+.ai-firewall-blocked {
+  position: relative !important;
+  background: linear-gradient(135deg, #fff5f5 0%, #fed7d7 100%) !important;
+  border: 2px solid #e53e3e !important;
+  border-radius: 12px !important;
+  padding: 24px !important;
+  margin: 8px 0 !important;
+  text-align: center !important;
+  color: #2d3748 !important;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif !important;
+  font-size: 14px !important;
+  line-height: 1.6 !important;
+  box-shadow: 0 4px 12px rgba(229, 62, 62, 0.15) !important;
+  animation: ai-firewall-slide-in 0.4s ease-out !important;
+  transition: all 0.3s ease !important;
+}
+
+.ai-firewall-blocked:hover {
+  box-shadow: 0 6px 20px rgba(229, 62, 62, 0.2) !important;
+  transform: translateY(-2px) !important;
+}
+
+/* Text-specific blocked content */
+.ai-firewall-blocked-text {
+  background: linear-gradient(135deg, #fff5f5 0%, #fed7d7 100%) !important;
+  min-height: 80px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+/* Image-specific blocked content */
+.ai-firewall-blocked-image {
+  background: linear-gradient(135deg, #f7fafc 0%, #e2e8f0 100%) !important;
+  min-height: 200px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border-color: #4299e1 !important;
+}
+
+/* Blurred content */
+.ai-firewall-blurred {
+  filter: blur(15px) saturate(0.3) !important;
+  transition: filter 0.4s ease !important;
+  cursor: pointer !important;
+  position: relative !important;
+}
+
+.ai-firewall-blurred::before {
+  content: "🛡️ Content filtered - Click to reveal" !important;
+  position: absolute !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  background: rgba(0, 0, 0, 0.8) !important;
+  color: white !important;
+  padding: 8px 16px !important;
+  border-radius: 20px !important;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  z-index: 10 !important;
+  pointer-events: none !important;
+  opacity: 0 !important;
+  transition: opacity 0.3s ease !important;
+}
+
+.ai-firewall-blurred:hover::before {
+  opacity: 1 !important;
+}
+
+.ai-firewall-blurred:hover {
+  filter: blur(8px) saturate(0.6) !important;
+}
+
+/* Icons and visual elements */
+.ai-firewall-icon {
+  font-size: 32px !important;
+  margin-bottom: 12px !important;
+  display: block !important;
+  opacity: 0.8 !important;
+}
+
+.ai-firewall-message {
+  font-weight: 700 !important;
+  font-size: 16px !important;
+  margin-bottom: 8px !important;
+  color: #2d3748 !important;
+}
+
+.ai-firewall-details {
+  font-size: 13px !important;
+  color: #718096 !important;
+  margin-bottom: 16px !important;
+  line-height: 1.4 !important;
+}
+
+.ai-firewall-reason {
+  background: rgba(229, 62, 62, 0.1) !important;
+  padding: 6px 12px !important;
+  border-radius: 16px !important;
+  font-size: 11px !important;
+  font-weight: 600 !important;
+  color: #c53030 !important;
+  display: inline-block !important;
+  margin: 4px 2px !important;
+}
+
+/* Action buttons */
+.ai-firewall-actions {
+  display: flex !important;
+  gap: 12px !important;
+  justify-content: center !important;
+  flex-wrap: wrap !important;
+  margin-top: 16px !important;
+}
+
+.ai-firewall-btn {
+  padding: 10px 20px !important;
+  border: 2px solid #e2e8f0 !important;
+  border-radius: 8px !important;
+  background: white !important;
+  color: #4a5568 !important;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
+  text-decoration: none !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+}
+
+.ai-firewall-btn:hover {
+  background: #f7fafc !important;
+  border-color: #cbd5e0 !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+}
+
+.ai-firewall-btn-primary {
+  background: #4299e1 !important;
+  color: white !important;
+  border-color: #4299e1 !important;
+}
+
+.ai-firewall-btn-primary:hover {
+  background: #3182ce !important;
+  border-color: #3182ce !important;
+}
+
+.ai-firewall-btn-danger {
+  background: #e53e3e !important;
+  color: white !important;
+  border-color: #e53e3e !important;
+}
+
+.ai-firewall-btn-danger:hover {
+  background: #c53030 !important;
+  border-color: #c53030 !important;
+}
+
+/* Safe content indicator */
+.ai-firewall-safe {
+  border: 2px solid #48bb78 !important;
+  background: linear-gradient(135deg, #f0fff4 0%, #c6f6d5 100%) !important;
+  position: relative !important;
+}
+
+.ai-firewall-safe::after {
+  content: "✓ Verified Safe" !important;
+  position: absolute !important;
+  top: -8px !important;
+  right: -8px !important;
+  background: #48bb78 !important;
+  color: white !important;
+  padding: 4px 8px !important;
+  border-radius: 12px !important;
+  font-size: 10px !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.5px !important;
+}
+
+/* Page indicator */
+.ai-firewall-page-indicator {
+  position: fixed !important;
+  top: 20px !important;
+  right: 20px !important;
+  z-index: 999999 !important;
+  background: rgba(66, 153, 225, 0.95) !important;
+  color: white !important;
+  padding: 12px 16px !important;
+  border-radius: 25px !important;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15) !important;
+  backdrop-filter: blur(10px) !important;
+  cursor: pointer !important;
+  transition: all 0.3s ease !important;
+  user-select: none !important;
+}
+
+.ai-firewall-page-indicator:hover {
+  background: rgba(49, 130, 206, 0.95) !important;
+  transform: scale(1.05) !important;
+}
+
+.ai-firewall-page-indicator.disabled {
+  background: rgba(229, 62, 62, 0.95) !important;
+}
+
+.ai-firewall-page-indicator.disabled:hover {
+  background: rgba(197, 48, 48, 0.95) !important;
+}
+
+/* Notification styles */
+.ai-firewall-notification {
+  position: fixed !important;
+  top: 80px !important;
+  right: 20px !important;
+  z-index: 999998 !important;
+  background: rgba(45, 55, 72, 0.95) !important;
+  color: white !important;
+  padding: 16px 20px !important;
+  border-radius: 12px !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.2) !important;
+  backdrop-filter: blur(10px) !important;
+  max-width: 300px !important;
+  animation: ai-firewall-slide-in-right 0.4s ease-out !important;
+}
+
+/* Loading states */
+.ai-firewall-loading {
+  opacity: 0.7 !important;
+  pointer-events: none !important;
+}
+
+.ai-firewall-loading::after {
+  content: "" !important;
+  position: absolute !important;
+  top: 50% !important;
+  left: 50% !important;
+  width: 20px !important;
+  height: 20px !important;
+  margin: -10px 0 0 -10px !important;
+  border: 2px solid #e2e8f0 !important;
+  border-top: 2px solid #4299e1 !important;
+  border-radius: 50% !important;
+  animation: ai-firewall-spin 1s linear infinite !important;
+}
+
+/* Animations */
+@keyframes ai-firewall-slide-in {
+  from {
+    opacity: 0;
+    transform: translateY(-20px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes ai-firewall-slide-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes ai-firewall-spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes ai-firewall-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .ai-firewall-blocked {
+    padding: 16px !important;
+    margin: 4px 0 !important;
+  }
+  
+  .ai-firewall-actions {
+    flex-direction: column !important;
+    gap: 8px !important;
+  }
+  
+  .ai-firewall-btn {
+    width: 100% !important;
+    justify-content: center !important;
+  }
+  
+  .ai-firewall-page-indicator {
+    top: 10px !important;
+    right: 10px !important;
+    padding: 8px 12px !important;
+    font-size: 12px !important;
+  }
+  
+  .ai-firewall-notification {
+    top: 60px !important;
+    right: 10px !important;
+    left: 10px !important;
+    max-width: none !important;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .ai-firewall-blocked {
+    border-width: 3px !important;
+    background: #ffffff !important;
+  }
+  
+  .ai-firewall-blurred {
+    filter: blur(20px) contrast(2) !important;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .ai-firewall-blocked,
+  .ai-firewall-btn,
+  .ai-firewall-blurred,
+  .ai-firewall-page-indicator,
+  .ai-firewall-notification {
+    animation: none !important;
+    transition: none !important;
+  }
+}

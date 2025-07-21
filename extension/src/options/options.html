@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI-Firewall Settings</title>
+    <link rel="stylesheet" href="options.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <span class="shield-icon">🛡️</span>
+                <h1>AI-Firewall Settings</h1>
+            </div>
+            <div class="version">v1.0.0</div>
+        </header>
+
+        <!-- Navigation -->
+        <nav class="nav-tabs">
+            <button class="nav-tab active" data-tab="general">General</button>
+            <button class="nav-tab" data-tab="filtering">Filtering</button>
+            <button class="nav-tab" data-tab="allowlist">Allowlist</button>
+            <button class="nav-tab" data-tab="parental">Parental</button>
+            <button class="nav-tab" data-tab="advanced">Advanced</button>
+        </nav>
+
+        <!-- Tab Content -->
+        <main class="content">
+            <!-- General Tab -->
+            <div class="tab-content active" id="general">
+                <div class="section">
+                    <h2>General Settings</h2>
+                    
+                    <div class="setting-group">
+                        <label class="setting-label">
+                            <input type="checkbox" id="enableFiltering" checked>
+                            <span class="checkmark"></span>
+                            Enable AI-Firewall Protection
+                        </label>
+                        <p class="setting-description">
+                            Turn on/off content filtering across all websites
+                        </p>
+                    </div>
+
+                    <div class="setting-group">
+                        <label class="setting-label">
+                            <input type="checkbox" id="showNotifications" checked>
+                            <span class="checkmark"></span>
+                            Show Notifications
+                        </label>
+                        <p class="setting-description">
+                            Display notifications when content is blocked
+                        </p>
+                    </div>
+
+                    <div class="setting-group">
+                        <label class="setting-label">
+                            <input type="checkbox" id="enableStats" checked>
+                            <span class="checkmark"></span>
+                            Collect Usage Statistics
+                        </label>
+                        <p class="setting-description">
+                            Help improve AI-Firewall by sharing anonymous usage data
+                        </p>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2>Interface</h2>
+                    
+                    <div class="setting-group">
+                        <label for="theme">Theme</label>
+                        <select id="theme" class="select-input">
+                            <option value="auto">Auto (System)</option>
+                            <option value="light">Light</option>
+                            <option value="dark">Dark</option>
+                        </select>
+                    </div>
+
+                    <div class="setting-group">
+                        <label for="language">Language</label>
+                        <select id="language" class="select-input">
+                            <option value="en">English</option>
+                            <option value="es">Español</option>
+                            <option value="fr">Français</option>
+                            <option value="de">Deutsch</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Filtering Tab -->
+            <div class="tab-content" id="filtering">
+                <div class="section">
+                    <h2>Content Filtering</h2>
+                    
+                    <div class="setting-group">
+                        <label for="filterLevel">Protection Level</label>
+                        <div class="filter-levels">
+                            <label class="filter-level">
+                                <input type="radio" name="filterLevel" value="mild">
+                                <div class="filter-card">
+                                    <h3>Mild</h3>
+                                    <p>Basic protection for mature users</p>
+                                    <ul>
+                                        <li>Blocks explicit content</li>
+                                        <li>Allows most discussions</li>
+                                        <li>Minimal false positives</li>
+                                    </ul>
+                                </div>
+                            </label>
+                            
+                            <label class="filter-level">
+                                <input type="radio" name="filterLevel" value="moderate" checked>
+                                <div class="filter-card">
+                                    <h3>Moderate</h3>
+                                    <p>Balanced protection for general use</p>
+                                    <ul>
+                                        <li>Blocks inappropriate content</li>
+                                        <li>Filters hate speech</li>
+                                        <li>Good balance of safety/usability</li>
+                                    </ul>
+                                </div>
+                            </label>
+                            
+                            <label class="filter-level">
+                                <input type="radio" name="filterLevel" value="strict">
+                                <div class="filter-card">
+                                    <h3>Strict</h3>
+                                    <p>Maximum protection for children</p>
+                                    <ul>
+                                        <li>Blocks all questionable content</li>
+                                        <li>Very sensitive filtering</li>
+                                        <li>Safest for young users</li>
+                                    </ul>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2>Content Categories</h2>
+                    <p class="section-description">
+                        Choose which types of content to filter
+                    </p>
+                    
+                    <div class="category-grid">
+                        <label class="category-item">
+                            <input type="checkbox" id="filterExplicit" checked>
+                            <span class="category-icon">🔞</span>
+                            <span class="category-name">Explicit Content</span>
+                        </label>
+                        
+                        <label class="category-item">
+                            <input type="checkbox" id="filterViolence" checked>
+                            <span class="category-icon">⚔️</span>
+                            <span class="category-name">Violence</span>
+                        </label>
+                        
+                        <label class="category-item">
+                            <input type="checkbox" id="filterHate" checked>
+                            <span class="category-icon">🚫</span>
+                            <span class="category-name">Hate Speech</span>
+                        </label>
+                        
+                        <label class="category-item">
+                            <input type="checkbox" id="filterHarassment" checked>
+                            <span class="category-icon">😡</span>
+                            <span class="category-name">Harassment</span>
+                        </label>
+                        
+                        <label class="category-item">
+                            <input type="checkbox" id="filterDrugs">
+                            <span class="category-icon">💊</span>
+                            <span class="category-name">Drugs</span>
+                        </label>
+                        
+                        <label class="category-item">
+                            <input type="checkbox" id="filterWeapons">
+                            <span class="category-icon">🔫</span>
+                            <span class="category-name">Weapons</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2>Blocking Method</h2>
+                    
+                    <div class="setting-group">
+                        <label for="blockingMethod">How to handle blocked content</label>
+                        <select id="blockingMethod" class="select-input">
+                            <option value="replace">Replace with warning</option>
+                            <option value="blur">Blur content</option>
+                            <option value="hide">Hide completely</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Allowlist Tab -->
+            <div class="tab-content" id="allowlist">
+                <div class="section">
+                    <h2>Trusted Websites</h2>
+                    <p class="section-description">
+                        Websites on this list will not be filtered
+                    </p>
+                    
+                    <div class="add-site">
+                        <input type="text" id="newSite" placeholder="Enter website domain (e.g., example.com)" class="text-input">
+                        <button id="addSite" class="btn btn-primary">Add Site</button>
+                    </div>
+                    
+                    <div class="site-list" id="allowlistSites">
+                        <!-- Sites will be populated by JavaScript -->
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2>Quick Add</h2>
+                    <div class="quick-add-grid">
+                        <button class="quick-add-btn" data-site="wikipedia.org">Wikipedia</button>
+                        <button class="quick-add-btn" data-site="khanacademy.org">Khan Academy</button>
+                        <button class="quick-add-btn" data-site="coursera.org">Coursera</button>
+                        <button class="quick-add-btn" data-site="edx.org">edX</button>
+                        <button class="quick-add-btn" data-site="stackoverflow.com">Stack Overflow</button>
+                        <button class="quick-add-btn" data-site="github.com">GitHub</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Parental Tab -->
+            <div class="tab-content" id="parental">
+                <div class="section">
+                    <h2>Parental Controls</h2>
+                    
+                    <div class="setting-group">
+                        <label class="setting-label">
+                            <input type="checkbox" id="parentalMode">
+                            <span class="checkmark"></span>
+                            Enable Parental Mode
+                        </label>
+                        <p class="setting-description">
+                            Prevents children from changing settings
+                        </p>
+                    </div>
+
+                    <div class="setting-group" id="passwordSection" style="display: none;">
+                        <label for="parentalPassword">Parental Password</label>
+                        <input type="password" id="parentalPassword" class="text-input" placeholder="Enter password">
+                        <button id="setPassword" class="btn btn-secondary">Set Password</button>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2>Activity Monitoring</h2>
+                    
+                    <div class="setting-group">
+                        <label class="setting-label">
+                            <input type="checkbox" id="logActivity" checked>
+                            <span class="checkmark"></span>
+                            Log Blocked Content
+                        </label>
+                        <p class="setting-description">
+                            Keep a record of blocked content for review
+                        </p>
+                    </div>
+
+                    <div class="setting-group">
+                        <label class="setting-label">
+                            <input type="checkbox" id="emailReports">
+                            <span class="checkmark"></span>
+                            Email Weekly Reports
+                        </label>
+                        <p class="setting-description">
+                            Send activity summaries to parent email
+                        </p>
+                    </div>
+
+                    <div class="setting-group" id="emailSection" style="display: none;">
+                        <label for="parentEmail">Parent Email</label>
+                        <input type="email" id="parentEmail" class="text-input" placeholder="parent@example.com">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Advanced Tab -->
+            <div class="tab-content" id="advanced">
+                <div class="section">
+                    <h2>AI Model Settings</h2>
+                    
+                    <div class="setting-group">
+                        <label for="textThreshold">Text Analysis Sensitivity</label>
+                        <input type="range" id="textThreshold" min="0.1" max="1.0" step="0.1" value="0.7" class="range-input">
+                        <span class="range-value">0.7</span>
+                    </div>
+
+                    <div class="setting-group">
+                        <label for="imageThreshold">Image Analysis Sensitivity</label>
+                        <input type="range" id="imageThreshold" min="0.1" max="1.0" step="0.1" value="0.6" class="range-input">
+                        <span class="range-value">0.6</span>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2>Performance</h2>
+                    
+                    <div class="setting-group">
+                        <label class="setting-label">
+                            <input type="checkbox" id="enableCache" checked>
+                            <span class="checkmark"></span>
+                            Enable Result Caching
+                        </label>
+                        <p class="setting-description">
+                            Cache analysis results to improve performance
+                        </p>
+                    </div>
+
+                    <div class="setting-group">
+                        <label for="batchSize">Batch Processing Size</label>
+                        <select id="batchSize" class="select-input">
+                            <option value="5">5 items</option>
+                            <option value="10" selected>10 items</option>
+                            <option value="20">20 items</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2>Data Management</h2>
+                    
+                    <div class="setting-group">
+                        <button id="exportSettings" class="btn btn-secondary">Export Settings</button>
+                        <button id="importSettings" class="btn btn-secondary">Import Settings</button>
+                        <input type="file" id="importFile" accept=".json" style="display: none;">
+                    </div>
+
+                    <div class="setting-group">
+                        <button id="clearCache" class="btn btn-warning">Clear Cache</button>
+                        <button id="resetSettings" class="btn btn-danger">Reset All Settings</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-actions">
+                <button id="saveSettings" class="btn btn-primary">Save Settings</button>
+                <button id="cancelSettings" class="btn btn-secondary">Cancel</button>
+            </div>
+            <div class="footer-info">
+                <p>AI-Firewall for Kids' Browsing • <a href="#" id="helpLink">Help</a> • <a href="#" id="privacyLink">Privacy</a></p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="options.js"></script>
+</body>
+</html>

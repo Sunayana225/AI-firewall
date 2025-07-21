@@ -1,0 +1,65 @@
+{
+  "manifest_version": 3,
+  "name": "AI-Firewall for Kids' Browsing",
+  "version": "1.0.0",
+  "description": "AI-powered content filtering for safe browsing experience",
+  
+  "permissions": [
+    "activeTab",
+    "storage",
+    "scripting",
+    "background"
+  ],
+  
+  "host_permissions": [
+    "http://localhost:5000/*",
+    "<all_urls>"
+  ],
+  
+  "background": {
+    "service_worker": "src/background/service-worker.js"
+  },
+  
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": [
+        "src/content/content-scanner.js",
+        "src/content/dom-manipulator.js",
+        "src/content/content-script.js"
+      ],
+      "css": ["src/content/content-styles.css"],
+      "run_at": "document_start"
+    }
+  ],
+  
+  "action": {
+    "default_popup": "src/popup/popup.html",
+    "default_title": "AI-Firewall Settings",
+    "default_icon": {
+      "16": "assets/icons/icon-16.png",
+      "32": "assets/icons/icon-32.png",
+      "48": "assets/icons/icon-48.png",
+      "128": "assets/icons/icon-128.png"
+    }
+  },
+  
+  "options_page": "src/options/options.html",
+  
+  "icons": {
+    "16": "assets/icons/icon-16.png",
+    "32": "assets/icons/icon-32.png",
+    "48": "assets/icons/icon-48.png",
+    "128": "assets/icons/icon-128.png"
+  },
+  
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "assets/icons/*",
+        "src/content/blocked-content.html"
+      ],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}

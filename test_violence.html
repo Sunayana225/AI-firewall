@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Violence Content Test - AI Firewall</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .test-section {
+            margin: 20px 0;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .violent-content {
+            background-color: #ffe6e6;
+        }
+        .safe-content {
+            background-color: #e6ffe6;
+        }
+    </style>
+</head>
+<body>
+    <h1>AI-Firewall Violence Detection Test</h1>
+    <p>This page contains various types of content to test the AI-Firewall extension's ability to detect and block violent content.</p>
+
+    <div class="test-section safe-content">
+        <h2>Safe Content</h2>
+        <p>This is completely safe content about cooking recipes and gardening tips. Nothing harmful here.</p>
+        <p>Learn how to grow beautiful flowers in your garden and cook delicious meals for your family.</p>
+    </div>
+
+    <div class="test-section violent-content">
+        <h2>Violent Keywords Test</h2>
+        <p>This section contains violent keywords that should be detected:</p>
+        <ul>
+            <li>killing pictures and violent imagery</li>
+            <li>murder scenes and death threats</li>
+            <li>gun violence and weapon attacks</li>
+            <li>blood and gore content</li>
+            <li>torture and abuse scenarios</li>
+        </ul>
+    </div>
+
+    <div class="test-section violent-content">
+        <h2>War and Violence</h2>
+        <p>Content about war, fighting, and violence should be blocked for children.</p>
+        <p>Images showing killing, shooting, and weapons are inappropriate for young users.</p>
+    </div>
+
+    <div class="test-section safe-content">
+        <h2>Educational Content</h2>
+        <p>Educational content about history, science, and literature should remain accessible.</p>
+        <p>Learning about mathematics, biology, and art is important for development.</p>
+    </div>
+
+    <div class="test-section violent-content">
+        <h2>Dynamic Content Test</h2>
+        <div id="dynamic-content">
+            <!-- This will be populated by JavaScript -->
+        </div>
+    </div>
+
+    <script>
+        // Add dynamic content to test real-time scanning
+        setTimeout(() => {
+            const dynamicDiv = document.getElementById('dynamic-content');
+            dynamicDiv.innerHTML = `
+                <p>This content was added dynamically and contains violent keywords:</p>
+                <p>Discussions about killing, murder, and death should be filtered out.</p>
+                <p>Content showing weapons, blood, and violence needs to be blocked.</p>
+            `;
+        }, 2000);
+
+        // Log to console for debugging
+        console.log('Test page loaded - AI-Firewall should scan this content');
+    </script>
+</body>
+</html>
