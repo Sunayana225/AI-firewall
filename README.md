@@ -111,6 +111,9 @@ npm start
 
 ## ⚙️ Configuration
 
+### 🚨 Security First!
+**NEVER commit API keys to GitHub!** Always use environment variables.
+
 ### Environment Variables
 Create `.env` file in backend folder:
 ```env
@@ -126,6 +129,8 @@ CORS_ORIGINS=http://localhost:3000,chrome-extension://*
 # Logging
 LOG_LEVEL=INFO
 ```
+
+**⚠️ Important**: The `.env` file is already in `.gitignore` to prevent accidental commits.
 
 ### Filtering Levels
 | Level | Description | Use Case |
